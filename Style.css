@@ -1,0 +1,92 @@
+buttonAdd{
+    background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;}
+
+buttonDel{
+    background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;}
+
+buttonEdit{
+  background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;} 
+
+buttonAF{
+  background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;} 
+
+buttonCF{
+  background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;}
+
+buttonSort{
+  background-color: blue;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; 
+    width: 10%;}
+
+buttonT{
+  background-color: blue; 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer; 
+  width: 10%; 
+  display: block; }
+
+buttonP{
+  background-color: blue; 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer; 
+  width: 10%; 
+  display: block; }
+
+buttonW{
+  background-color: blue; 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer; 
+  width: 10%; 
+  display: block; }
+
+buttonE{
+  background-color: blue; 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer; 
+  width: 10%; 
+  display: block; }
+
+buttonC{
+  background-color: blue; 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer; 
+  width: 10%; 
+  display: block; }
