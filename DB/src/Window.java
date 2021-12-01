@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,12 +8,27 @@
  *
  * @author lilmoe12
  */
+import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.Connection;
 public class Window extends javax.swing.JFrame {
 
     /**
      * Creates new form Window
      */
+    String driver = "com.mysql.cj.jdbc.Driver";
+    String un = "root";
+    String pw = "Doubletrocks1";
     public Window() {
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
         initComponents();
     }
 
@@ -168,7 +184,7 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EditSelected)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SearchButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,6 +235,20 @@ public class Window extends javax.swing.JFrame {
 
     private void TentRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentRentalActionPerformed
         // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            Statement st = conn.createStatement();
+            String query = "Select * from tent_rental";
+            ResultSet rs = st.executeQuery(query);
+            
+            jTextArea1.setText("");
+            
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
     }//GEN-LAST:event_TentRentalActionPerformed
 
     private void TentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentActionPerformed
