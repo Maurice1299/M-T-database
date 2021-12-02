@@ -11,6 +11,7 @@
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.util.ArrayList;
 public class Window extends javax.swing.JFrame {
 
     /**
@@ -235,6 +236,8 @@ public class Window extends javax.swing.JFrame {
 
     private void TentRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentRentalActionPerformed
         // TODO add your handling code here:
+       ArrayList<Integer> Tent_IDs = new ArrayList<Integer>();
+       ArrayList<Integer> Party_IDs = new ArrayList<Integer>();
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
@@ -243,8 +246,15 @@ public class Window extends javax.swing.JFrame {
             Statement st = conn.createStatement();
             String query = "Select * from tent_rental";
             ResultSet rs = st.executeQuery(query);
-            
-            jTextArea1.setText("");
+            while(rs.next()){
+                Tent_IDs.add(rs.getInt(1));
+                Party_IDs.add(rs.getInt(2));
+            }
+            String text = "Tent ID\tParty_ID\n";
+            for(int i = 0; i < Tent_IDs.size(); i++){
+                text += Tent_IDs.get(i) + "\t" + Party_IDs.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
             
         }catch (Exception e) {
             System.out.println("SQL Exception: "+ e.toString());
@@ -252,31 +262,235 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_TentRentalActionPerformed
 
     private void TentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+            ArrayList<Integer> Tent_IDs = new ArrayList<Integer>();
+            ArrayList<String> Sizes = new ArrayList<String>();
+            ArrayList<Integer> Num_Stakes = new ArrayList<Integer>();
+            ArrayList<Integer> Num_Poles = new ArrayList<Integer>();
+            ArrayList<Integer> Square_Footages = new ArrayList<Integer>();
+             try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+                Connection conn;
+                conn = DriverManager.getConnection(connectionURL, un, pw);
+                Statement st = conn.createStatement();
+                String query = "Select * from tent";
+                ResultSet rs = st.executeQuery(query);
+                while(rs.next()){
+                Tent_IDs.add(rs.getInt(1));
+                Sizes.add(rs.getString(2));
+                Num_Stakes.add(rs.getInt(3));
+                Num_Poles.add(rs.getInt(4));
+                Square_Footages.add(rs.getInt(5));
+            }
+            String text = "Tent_ID\tSize\tNum_Stakes\tNum_Poles\tSquare_Footage\t\n";
+            for(int i = 0; i < Tent_IDs.size(); i++){
+                text += Tent_IDs.get(i) + "\t" + Sizes.get(i) + "\t" + Num_Stakes.get(i) +
+                        "\t" + Num_Poles.get(i) + "\t" + Square_Footages.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
+            }catch (Exception e) {
+                System.out.println("SQL Exception: "+ e.toString());
+            }
     }//GEN-LAST:event_TentActionPerformed
 
     private void PartiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PartiesActionPerformed
         // TODO add your handling code here:
+        ArrayList<Integer> Party_IDs = new ArrayList<Integer>();
+        ArrayList<Integer> Customer_IDs = new ArrayList<Integer>();
+        ArrayList<String> Locations = new ArrayList<String>();
+        ArrayList<Date> Setup_Dates = new ArrayList<Date>();
+        ArrayList<Date> Takedown_Dates = new ArrayList<Date>();
+        ArrayList<Double> Costs = new ArrayList<Double>();
+        ArrayList<Integer> Tables = new ArrayList<Integer>();
+        ArrayList<Integer> Chairs = new ArrayList<Integer>();
+         try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+                Connection conn;
+                conn = DriverManager.getConnection(connectionURL, un, pw);
+                Statement st = conn.createStatement();
+                String query = "Select * from party";
+                ResultSet rs = st.executeQuery(query);
+                while(rs.next()){
+                Party_IDs.add(rs.getInt(1));
+                Customer_IDs.add(rs.getInt(2));
+                Locations.add(rs.getString(3));
+                Setup_Dates.add(rs.getDate(4));
+                Takedown_Dates.add(rs.getDate(5));
+                Costs.add(rs.getDouble(6));
+                Tables.add(rs.getInt(7));
+                Chairs.add(rs.getInt(8));
+                
+            }
+            String text = "Party_ID\tCustomer_ID\tLocation\t\t\t   Setup_Date\t\tTakedown_Date\tCost\tTables\tChairs\n";
+            for(int i = 0; i < Party_IDs.size(); i++){
+                text += Party_IDs.get(i) + "\t" + Customer_IDs.get(i) + "\t" + Locations.get(i) +
+                        "          " + Setup_Dates.get(i) + "\t" + Takedown_Dates.get(i) + "\t\t" + Costs.get(i) +
+                        "\t" + Tables.get(i) + "\t" + Chairs.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
+            }catch (Exception e) {
+                System.out.println("SQL Exception: "+ e.toString());
+            }
+        
+        
     }//GEN-LAST:event_PartiesActionPerformed
 
     private void CustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerActionPerformed
         // TODO add your handling code here:
+        ArrayList<Integer> Customer_IDs = new ArrayList<Integer>();
+        ArrayList<String> Customer_FNames = new ArrayList<String>();
+        ArrayList<String> Customer_LNames = new ArrayList<String>();
+        ArrayList<Long> Customer_Phones = new ArrayList<Long>();
+        ArrayList<String> Customer_Emails = new ArrayList<String>();
+         try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+                Connection conn;
+                conn = DriverManager.getConnection(connectionURL, un, pw);
+                Statement st = conn.createStatement();
+                String query = "Select * from customer";
+                ResultSet rs = st.executeQuery(query);
+                while(rs.next()){
+                Customer_IDs.add(rs.getInt(1));
+                Customer_FNames.add(rs.getString(2));
+                Customer_LNames.add(rs.getString(3));
+                Customer_Phones.add(rs.getLong(4));
+                Customer_Emails.add(rs.getString(5));
+                }
+                String text = "Customer_ID\tCustomer_FName\tCustomer_LName\tCustomer_Phone\tCustomer_Email\n";
+                for(int i = 0; i < Customer_IDs.size(); i++){
+                    text += Customer_IDs.get(i) + "\t" + Customer_FNames.get(i) + "\t\t" + Customer_LNames.get(i) +
+                            "\t\t" + Customer_Phones.get(i) + "\t\t" + Customer_Emails.get(i) + "\n";
+                }
+                jTextArea1.setText(text);
+            }catch (Exception e) {
+                System.out.println("SQL Exception: "+ e.toString());
+            }
+        
     }//GEN-LAST:event_CustomerActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
         // TODO add your handling code here:
+        ArrayList<Integer> Employee_IDs = new ArrayList<Integer>();
+        ArrayList<String> Employee_FNames = new ArrayList<String>();
+        ArrayList<String> Employee_LNames = new ArrayList<String>();
+        ArrayList<Long> Employee_Phones = new ArrayList<Long>();
+        
+         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            Statement st = conn.createStatement();
+            String query = "Select * from employee";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+            Employee_IDs.add(rs.getInt(1));
+            Employee_FNames.add(rs.getString(2));
+            Employee_LNames.add(rs.getString(3));
+            Employee_Phones.add(rs.getLong(4));
+            }
+            String text = "Employee_ID\tEmployee_FName\tEmployee_LName\tEmployee_Phone\n";
+            for(int i = 0; i < Employee_IDs.size(); i++){
+                text += Employee_IDs.get(i) + "\t" + Employee_FNames.get(i) + "\t\t" + Employee_LNames.get(i) +
+                        "\t\t" + Employee_Phones.get(i)+ "\n";
+            }
+            jTextArea1.setText(text);
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
     }//GEN-LAST:event_EmployeesActionPerformed
 
     private void WorkDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkDaysActionPerformed
         // TODO add your handling code here:
+        ArrayList<Date> Work_Dates = new ArrayList<Date>();
+        ArrayList<String> Start_Times = new ArrayList<String>();
+        ArrayList<String> End_Times = new ArrayList<String>();
+        
+         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            Statement st = conn.createStatement();
+            String query = "Select * from workday";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+            Work_Dates.add(rs.getDate(1));
+            Start_Times.add(rs.getString(2));
+            End_Times.add(rs.getString(3));
+            }
+            String text = "Work_Date\tStart_Time\tEnd_Time\n";
+            for(int i = 0; i < Work_Dates.size(); i++){
+                text += Work_Dates.get(i) + "\t" + Start_Times.get(i) + "\t" + End_Times.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
+        
     }//GEN-LAST:event_WorkDaysActionPerformed
 
     private void WorkOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkOrderActionPerformed
         // TODO add your handling code here:
+        
+        ArrayList<Date> Work_Dates = new ArrayList<Date>();
+        ArrayList<Integer> Party_IDs = new ArrayList<Integer>();
+        ArrayList<Boolean> Setups = new ArrayList<Boolean>();
+        ArrayList<Boolean> Takedowns = new ArrayList<Boolean>();
+        ArrayList<Integer> Order_Numbers = new ArrayList<Integer>();
+        
+         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            Statement st = conn.createStatement();
+            String query = "Select * from workorder";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+            Work_Dates.add(rs.getDate(1));
+            Party_IDs.add(rs.getInt(2));
+            Setups.add(rs.getBoolean(3));
+            Takedowns.add(rs.getBoolean(4));
+            Order_Numbers.add(rs.getInt(5));
+            }
+            String text = "Work_Date\tParty_ID\tSetup\tTakedown\tOrder_Numbers\n";
+            for(int i = 0; i < Work_Dates.size(); i++){
+                text += Work_Dates.get(i) + "\t" + Party_IDs.get(i) + "\t" + Setups.get(i)+ "\t" + Takedowns.get(i) + "\t" + Order_Numbers.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
     }//GEN-LAST:event_WorkOrderActionPerformed
 
     private void SchedulingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulingActionPerformed
         // TODO add your handling code here:
+        ArrayList<Integer> Employee_IDs = new ArrayList<Integer>();
+        ArrayList<Date> Work_Day_Dates = new ArrayList<Date>();
+         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String connectionURL = "jdbc:mysql://localhost:3306/patrickspartyrental";
+            Connection conn;
+            conn = DriverManager.getConnection(connectionURL, un, pw);
+            Statement st = conn.createStatement();
+            String query = "Select * from scheduling";
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                Employee_IDs.add(rs.getInt(1));
+                Work_Day_Dates.add(rs.getDate(2));
+            }
+            String text = "Employee_ID\tWork_Date\n";
+            for(int i = 0; i < Employee_IDs.size(); i++){
+                text += Employee_IDs.get(i) + "\t" + Work_Day_Dates.get(i) + "\n";
+            }
+            jTextArea1.setText(text);
+        }catch (Exception e) {
+            System.out.println("SQL Exception: "+ e.toString());
+        }
     }//GEN-LAST:event_SchedulingActionPerformed
 
     private void EditSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSelectedActionPerformed
