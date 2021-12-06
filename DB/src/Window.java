@@ -8,10 +8,14 @@
  *
  * @author lilmoe12
  */
+import static java.lang.Short.valueOf;
+import static java.lang.Short.valueOf;
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Window extends javax.swing.JFrame {
 
     /**
@@ -55,10 +59,9 @@ public class Window extends javax.swing.JFrame {
         Scheduling = new javax.swing.JButton();
         Add = new javax.swing.JButton();
         Delete = new javax.swing.JButton();
-        EditSelected = new javax.swing.JButton();
+        Edit = new javax.swing.JButton();
         Search = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
-        Sort = new javax.swing.JButton();
         ClearSearchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,6 +127,11 @@ public class Window extends javax.swing.JFrame {
         });
 
         Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
 
         Delete.setText("Delete");
         Delete.addActionListener(new java.awt.event.ActionListener() {
@@ -132,10 +140,10 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        EditSelected.setText("Edit Selected");
-        EditSelected.addActionListener(new java.awt.event.ActionListener() {
+        Edit.setText("Edit");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditSelectedActionPerformed(evt);
+                EditActionPerformed(evt);
             }
         });
 
@@ -155,13 +163,6 @@ public class Window extends javax.swing.JFrame {
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchButtonActionPerformed(evt);
-            }
-        });
-
-        Sort.setText("Sort");
-        Sort.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SortActionPerformed(evt);
             }
         });
 
@@ -197,17 +198,14 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Delete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EditSelected)
+                        .addComponent(Edit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ClearSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(Sort)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(529, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,13 +214,12 @@ public class Window extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Add)
                     .addComponent(Delete)
-                    .addComponent(EditSelected)
+                    .addComponent(Edit)
                     .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchButton)
-                    .addComponent(Sort))
+                    .addComponent(SearchButton))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addGap(65, 65, 65)
                         .addComponent(Tent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TentRental)
@@ -241,7 +238,7 @@ public class Window extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ClearSearchButton)
-                        .addGap(65, 65, 65)
+                        .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
@@ -251,6 +248,8 @@ public class Window extends javax.swing.JFrame {
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
         // TODO add your handling code here:
+        DeleteForm delete = new DeleteForm(currentTable);
+        delete.setVisible(true);
     }//GEN-LAST:event_DeleteActionPerformed
 
     private void TentRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentRentalActionPerformed
@@ -517,9 +516,10 @@ public class Window extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SchedulingActionPerformed
 
-    private void EditSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSelectedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditSelectedActionPerformed
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+        EditForm edit = new EditForm(currentTable);
+        edit.setVisible(true);
+    }//GEN-LAST:event_EditActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         // TODO add your handling code here:
@@ -563,10 +563,6 @@ public class Window extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
 
-    private void SortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SortActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SortActionPerformed
-
     private void SearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchFocusGained
         // TODO add your handling code here:
         Search.setText("");
@@ -576,6 +572,9 @@ public class Window extends javax.swing.JFrame {
                 break;
             case "tent":
                 Tent.doClick();
+                break;
+            case "party":
+                Parties.doClick();
                 break;
             case "employee":
                 Employees.doClick();
@@ -600,6 +599,11 @@ public class Window extends javax.swing.JFrame {
     private void ClearSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearSearchButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ClearSearchButtonActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        // TODO add your handling code here:
+        addEntry(currentTable);
+    }//GEN-LAST:event_AddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -635,7 +639,15 @@ public class Window extends javax.swing.JFrame {
             }
         });
     }
-    
+//################  ADD FUNCTIONS  ########################
+    public void addEntry(String currentTable)
+    {
+        AddForm add = new AddForm(currentTable);
+        add.setVisible(true);
+    }
+
+
+//################  SEARCH FUNCTIONS  ####################    
     public void searchTentRentals(String searchText){
         searchText = searchText.toLowerCase();
         ArrayList<Integer> Tent_IDs = new ArrayList<Integer>();
@@ -983,13 +995,12 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JButton ClearSearchButton;
     private javax.swing.JButton Customer;
     private javax.swing.JButton Delete;
-    private javax.swing.JButton EditSelected;
+    private javax.swing.JButton Edit;
     private javax.swing.JButton Employees;
     private javax.swing.JButton Parties;
     private javax.swing.JButton Scheduling;
     private javax.swing.JTextField Search;
     private javax.swing.JButton SearchButton;
-    private javax.swing.JButton Sort;
     private javax.swing.JButton Tent;
     private javax.swing.JButton TentRental;
     private javax.swing.JButton WorkDays;

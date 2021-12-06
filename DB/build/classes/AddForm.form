@@ -27,29 +27,27 @@
               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="DoneBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="CancelBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="AddTextBox7" min="-2" pref="211" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="AddLabel8" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel7" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel6" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel5" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddTableName" min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="AddLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="AddTextBox8" alignment="0" pref="211" max="32767" attributes="0"/>
-                      <Component id="AddTextBox1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="AddTextBox6" alignment="0" max="32767" attributes="0"/>
-                      <Component id="AddTextBox5" alignment="0" max="32767" attributes="0"/>
-                      <Component id="AddTextBox4" alignment="0" max="32767" attributes="0"/>
-                      <Component id="AddTextBox3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="AddTextBox2" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="AddLabel8" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddTableName" min="-2" pref="141" max="-2" attributes="0"/>
+                  <Component id="AddLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="AddTextBox8" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox6" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox5" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="AddTextBox2" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="570" max="32767" attributes="0"/>
           </Group>
@@ -58,9 +56,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="AddTableName" min="-2" pref="25" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="AddLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="AddTextBox1" min="-2" max="-2" attributes="0"/>
@@ -92,12 +90,12 @@
               <Component id="AddLabel8" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="AddTextBox8" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DoneBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace pref="199" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -167,15 +165,21 @@
     </Component>
     <Component class="javax.swing.JTextField" name="AddTextBox8">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="DoneBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Done"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DoneBtnActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="CancelBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
