@@ -62,7 +62,6 @@ public class Window extends javax.swing.JFrame {
         Edit = new javax.swing.JButton();
         Search = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
-        ClearSearchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,23 +152,11 @@ public class Window extends javax.swing.JFrame {
                 SearchFocusGained(evt);
             }
         });
-        Search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchActionPerformed(evt);
-            }
-        });
 
         SearchButton.setText("Search");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchButtonActionPerformed(evt);
-            }
-        });
-
-        ClearSearchButton.setText("Search");
-        ClearSearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClearSearchButtonActionPerformed(evt);
             }
         });
 
@@ -202,9 +189,7 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ClearSearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(529, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -236,9 +221,7 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Scheduling))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClearSearchButton)
-                        .addGap(35, 35, 35)
+                        .addGap(64, 64, 64)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
@@ -521,11 +504,6 @@ public class Window extends javax.swing.JFrame {
         edit.setVisible(true);
     }//GEN-LAST:event_EditActionPerformed
 
-    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_SearchActionPerformed
-
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
         String searchText = Search.getText();
@@ -595,10 +573,6 @@ public class Window extends javax.swing.JFrame {
                 break;       
         }
     }//GEN-LAST:event_SearchFocusGained
-
-    private void ClearSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearSearchButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ClearSearchButtonActionPerformed
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
@@ -992,7 +966,6 @@ public class Window extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Add;
-    private javax.swing.JButton ClearSearchButton;
     private javax.swing.JButton Customer;
     private javax.swing.JButton Delete;
     private javax.swing.JButton Edit;

@@ -23,6 +23,9 @@ public class AddForm extends javax.swing.JFrame {
     String un = "root";
     String pw = "Doubletrocks1";
     boolean adding = true;
+    
+    //Set the current table, set label texts, and set correct amount
+    //of text boxes visible
     public AddForm(String currentTable) {
         this.currentTable = currentTable;
         initComponents();
@@ -184,11 +187,7 @@ public class AddForm extends javax.swing.JFrame {
         }
         
     }
-    public boolean getAdding(){
-        return adding;
-    }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -235,12 +234,6 @@ public class AddForm extends javax.swing.JFrame {
         AddLabel6.setText("AddLabel6");
 
         AddLabel7.setText("AddLabel7");
-
-        AddTextBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddTextBox7ActionPerformed(evt);
-            }
-        });
 
         AddLabel8.setText("AddLabel8");
 
@@ -335,10 +328,6 @@ public class AddForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddTextBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTextBox7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddTextBox7ActionPerformed
-
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -352,6 +341,7 @@ public class AddForm extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_DoneBtnActionPerformed
 
+    
     private void setValues(String currentTable){
         switch(currentTable){
             case "tent_rental":
